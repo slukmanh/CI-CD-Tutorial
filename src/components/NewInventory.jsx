@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import Input from "./Input";
 import { InventoryContext } from "../contexts/InventoryContext";
+import PropTypes from "prop-types";
 
 function NewInventory({setToggleNewInventory}) {
 
@@ -92,6 +93,10 @@ function NewInventory({setToggleNewInventory}) {
     )
 
 }
+
+NewInventory.propTypes = {
+    setToggleNewInventory: PropTypes.func.isRequired,
+};
 
 export default NewInventory;
 

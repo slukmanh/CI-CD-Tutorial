@@ -3,6 +3,7 @@ import { InventoryContext } from "../contexts/InventoryContext";
 import { API_BASE_URL } from "./ApiConfig";
 import toast from "react-hot-toast";
 import axios from "axios";
+import PropTypes from "prop-types";
 
 function InventoryService() {
 
@@ -40,7 +41,7 @@ function InventoryService() {
     const saveInventory = async ({name, price, quantity}) => {
         setLoading(true);
         try {
-            const response = await axios.post(`${API_BASE_URL}/inventory/`, {itemName: name, price: price, quantity: quantity});
+            await axios.post(`${API_BASE_URL}/inventory/`, {itemName: name, price: price, quantity: quantity});
         } catch (error) {
             toast.error("Unable to process your request now. Please try again later!");
         } finally {
@@ -51,7 +52,7 @@ function InventoryService() {
     const editInventory = async (InventoryId, name, price, quantity) => {
         setLoading(true);
         try {
-            const response = await axios.put(`${API_BASE_URL}/inventory/`, 
+            await axios.put(`${API_BASE_URL}/inventory/`, 
                 {itemName: name, price: price, quantity: quantity},
                 {
                     params: {
@@ -71,7 +72,7 @@ function InventoryService() {
     const deleteInventory = async (InventoryId) => {
         setLoading(true);
         try {
-            const response = await axios.delete(`${API_BASE_URL}/inventory/`, {
+            await axios.delete(`${API_BASE_URL}/inventory/`, {
                 params: {
                     inventoryId: InventoryId
                 }
@@ -109,5 +110,9 @@ function InventoryWrapper({ children }) {
         </InventoryContext.Provider>
     )
 }
+
+InventoryWrapper.propTypes = {
+    children: PropTypes.node.isRequired,
+};
 
 export default InventoryWrapper;

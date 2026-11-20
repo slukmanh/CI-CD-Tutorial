@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Input from "./Input";
 import { InventoryContext } from "../contexts/InventoryContext";
+import PropTypes from "prop-types";
 
 function EditInventory({setToggleEditInventory}) {
 
@@ -25,7 +26,7 @@ function EditInventory({setToggleEditInventory}) {
         })
     }, [Inventory])
 
-    const onSubmit = async (e) => {
+    const onSubmit = async () => {
         const newErrors = validateInputs(inputs);
 
         if (Object.keys(newErrors).length !== 0) {
@@ -96,6 +97,10 @@ function EditInventory({setToggleEditInventory}) {
     )
 
 }
+
+EditInventory.propTypes = {
+    setToggleEditInventory: PropTypes.func.isRequired,
+};
 
 export default EditInventory;
 

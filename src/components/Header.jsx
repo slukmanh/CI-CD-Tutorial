@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Header({setToggleNewInventory}) {
     
 
@@ -20,5 +22,9 @@ function Header({setToggleNewInventory}) {
         </div>
     )
 }
+
+Header.propTypes = {
+    setToggleNewInventory: PropTypes.func.isRequired,
+};
 
 export default Header;

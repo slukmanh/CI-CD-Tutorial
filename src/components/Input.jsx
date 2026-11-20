@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Input({label, type, name, placeholder, value, error, onChange}) {
 
     return (
@@ -19,5 +21,15 @@ function Input({label, type, name, placeholder, value, error, onChange}) {
         </div>
     )
 }
+
+Input.propTypes = {
+    label: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    placeholder: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    error: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+};
 
 export default Input;
