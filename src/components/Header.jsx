@@ -9,7 +9,7 @@ function Header({setToggleNewInventory}) {
             <h1
                 className="text-blue-100 text-lg md:text-2xl md:font-bold text-left flex-1 capitalize"
             >
-                Inventory App
+                Inventory App by <span className="text-blue-300">luku</span>
             </h1>
 
             <div
